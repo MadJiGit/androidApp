@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Retrofit;
 
 public class Controller {
@@ -23,21 +24,21 @@ public class Controller {
 
         Retrofit retrofit = getRetroFit("X-CoinAPI-Key", "3CCDC3B6-F709-4544-86F9-69888FB0C543");
         ApiService service = retrofit.create(ApiService.class);
-        Model ac1 = new Model(service, service.loadCoinsExchangeData());
-        Model ac2 = new Model(service, service.loadCoinsAssetsData());
+        Model ac1 = new Model(service.loadCoinsExchangeData());
+        Model ac2 = new Model(service.loadCoinsAssetsData());
+
 
 
         ac1.doRequest(new ApiCallback() {
             @Override
             public List<ExchangeCoinData> onSuccess(Object result) {
-                int counter = 0;
                 return  (List<ExchangeCoinData>) result;
 //                for (ExchangeCoinData ncd : list) {
 //                    System.out.println("new " + counter++ + " exchange_id: " + ncd.getExchange_id() + " name: " + ncd.getName());
 //                }
 //                return list;
             }
-        });
+        }); 
     }
 
 

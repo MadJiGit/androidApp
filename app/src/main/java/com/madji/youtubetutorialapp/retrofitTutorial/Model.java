@@ -1,7 +1,5 @@
 package com.madji.youtubetutorialapp.retrofitTutorial;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -10,11 +8,11 @@ public class Model<T> {
 
 //    Retrofit retrofit = getRetroFit("X-CoinAPI-Key", "3CCDC3B6-F709-4544-86F9-69888FB0C543");
 //    ApiService service = retrofit.create(ApiService.class);
-    private ApiService service;
+//    private ApiService service;
     private Call<T> call;
 
-    public Model(ApiService service, Call<T> call) {
-        this.service = service;
+    public Model(Call<T> call) {
+//        this.service = service;
         this.call = (Call<T>) call;
     }
 
