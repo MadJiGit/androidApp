@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -26,16 +27,15 @@ public class Controller {
         Model ac2 = new Model(service, service.loadCoinsAssetsData());
 
 
-
         ac1.doRequest(new ApiCallback() {
             @Override
-            public void onSuccess(Object result) {
+            public List<ExchangeCoinData> onSuccess(Object result) {
                 int counter = 0;
-                List<ExchangeCoinData> list =  (List<ExchangeCoinData>) result;
-                for (ExchangeCoinData ncd : list) {
-                    System.out.println("new " + counter++ + " exchange_id: " + ncd.getExchange_id() + " name: " + ncd.getName());
-                }
-
+                return  (List<ExchangeCoinData>) result;
+//                for (ExchangeCoinData ncd : list) {
+//                    System.out.println("new " + counter++ + " exchange_id: " + ncd.getExchange_id() + " name: " + ncd.getName());
+//                }
+//                return list;
             }
         });
     }
