@@ -22,21 +22,27 @@ public class Controller {
 
         Retrofit retrofit = getRetroFit("X-CoinAPI-Key", "3CCDC3B6-F709-4544-86F9-69888FB0C543");
         ApiService service = retrofit.create(ApiService.class);
-        AfterController ac = new AfterController(service);
+        Model ac1 = new Model(service, service.loadCoinsExchangeData());
+        Model ac2 = new Model(service, service.loadCoinsAssetsData());
 
-        ac.doRequest(new ApiCallback(){
+
+
+        ac1.doRequest(new ApiCallback() {
             @Override
-            public void onSuccess(List<NewCoinData> coinList){
-                int counter = 1;
-                for (NewCoinData ncd : coinList) {
-                    System.out.println("new " + counter++ + " id: " + ncd.getExchange_id() + " name: " + ncd.getName());
+            public void onSuccess(Object result) {
+                int counter = 0;
+                List<ExchangeCoinData> list =  (List<ExchangeCoinData>) result;
+                for (ExchangeCoinData ncd : list) {
+                    System.out.println("new " + counter++ + " exchange_id: " + ncd.getExchange_id() + " name: " + ncd.getName());
                 }
+
             }
         });
     }
 
 
-    private void WriteDataToFile(Call<List<NewCoinData>> call, File newFile) {
+
+    private void WriteDataToFile(Call<List<ExchangeCoinData>> call, File newFile) {
         try (FileOutputStream stream = new FileOutputStream(newFile)) {
             stream.write(call.toString().getBytes());
         } catch (IOException e) {
@@ -77,3 +83,18 @@ public class Controller {
 
 }
 
+/*
+
+working callback
+        ac1.doRequest(new ApiCallback() {
+            @Override
+            public void onSuccess(Object result) {
+                int counter = 0;
+                List<ExchangeCoinData> list =  (List<ExchangeCoinData>) result;
+                for (ExchangeCoinData ncd : list) {
+                    System.out.println("new " + counter++ + " exchange_id: " + ncd.getExchange_id() + " name: " + ncd.getName());
+                }
+
+            }
+        });
+ */
