@@ -1,4 +1,8 @@
-package com.madji.youtubetutorialapp.retrofitTutorial;
+package com.madji.youtubetutorialapp.retrofitTutorial.models;
+
+import androidx.annotation.NonNull;
+
+import com.madji.youtubetutorialapp.retrofitTutorial.interfaces.ApiCallback;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -6,13 +10,9 @@ import retrofit2.Response;
 
 public class Model<T> {
 
-//    Retrofit retrofit = getRetroFit("X-CoinAPI-Key", "3CCDC3B6-F709-4544-86F9-69888FB0C543");
-//    ApiService service = retrofit.create(ApiService.class);
-//    private ApiService service;
-    private Call<T> call;
+    private final Call<T> call;
 
     public Model(Call<T> call) {
-//        this.service = service;
         this.call = (Call<T>) call;
     }
 
@@ -21,8 +21,8 @@ public class Model<T> {
         call.enqueue((Callback<T>) new Callback<T>() {
 
             @Override
-            public void onResponse(Call<T> call,
-                                   Response<T> response) {
+            public void onResponse(@NonNull Call<T> call,
+                                   @NonNull Response<T> response) {
                 if (response.isSuccessful()) {
                     callback.onSuccess(response.body());
                 } else {
@@ -31,7 +31,7 @@ public class Model<T> {
             }
 
             @Override
-            public void onFailure(Call<T> call, Throwable t) {
+            public void onFailure(@NonNull Call<T> call, @NonNull Throwable t) {
                 t.printStackTrace();
             }
         });

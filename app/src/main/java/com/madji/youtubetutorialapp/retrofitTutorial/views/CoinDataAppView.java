@@ -1,4 +1,4 @@
-package com.madji.youtubetutorialapp;
+package com.madji.youtubetutorialapp.retrofitTutorial.views;
 
 import android.annotation.SuppressLint;
 
@@ -6,7 +6,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class CoinData {
+public class CoinDataAppView {
 
     final private String nickName;
     final private String fullName;
@@ -14,7 +14,7 @@ public class CoinData {
     final private String dataPurchased;
     final private String purchasePrice;
 
-    CoinData(String nickName, String fullName, String amount, String price){
+    CoinDataAppView(String nickName, String fullName, String amount, String price){
         this.nickName = nickName;
         this.fullName = fullName;
         this.amount = amount;

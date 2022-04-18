@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.madji.youtubetutorialapp.retrofitTutorial.Controller;
-
-import java.io.IOException;
+import com.madji.youtubetutorialapp.retrofitTutorial.controllers.Controller;
 
 public class MainActivity extends AppCompatActivity {
     private TextView temp;

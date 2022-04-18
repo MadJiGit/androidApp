@@ -1,4 +1,4 @@
-package com.madji.youtubetutorialapp.retrofitTutorial;
+package com.madji.youtubetutorialapp.retrofitTutorial.interfaces;
 
 import java.util.List;
 
