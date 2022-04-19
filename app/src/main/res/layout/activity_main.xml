@@ -7,11 +7,20 @@
     android:padding="8dp"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/DBButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="40dp"
+        android:paddingTop="50dp"
+        android:text="Database" />
 
     <ListView
         android:id="@+id/coinsListItem"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/DBButton"
+        android:paddingTop="8dp" />
 
     <TextView
         android:id="@+id/responseText"
