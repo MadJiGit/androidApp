@@ -16,4 +16,6 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/one_coin_view"/>
 
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
