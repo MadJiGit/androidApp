@@ -1,39 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/DBButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:height="40dp"
-        android:paddingTop="50dp"
-        android:text="Database" />
-
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/coinsListItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/DBButton"
-        android:paddingTop="8dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:listitem="@layout/one_coin_view"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/responseText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:width="370dp"
-        android:height="200dp"
-        android:textColor="@color/purple_200" />
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

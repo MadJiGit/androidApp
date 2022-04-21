@@ -50,8 +50,8 @@ public abstract class CoinsAppDatabase extends RoomDatabase {
 //OneCoinData(String fullName, String nickName, String amount, String dataPurchased, String purchasePrice)
                 OneCoinData ocd = new OneCoinData("Bitcoin", "BTC", "100", "18.04.2022", "1234");
                 cadi.insert(ocd);
-                ocd = new OneCoinData("Etherum", "ETH", "400", "18.04.2022", "345");
-                cadi.insert(ocd);
+                OneCoinData ocd2 = new OneCoinData("Etherum", "ETH", "400", "18.04.2022", "345");
+                cadi.insert(ocd2);
             });
         }
     };

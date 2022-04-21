@@ -27,7 +27,4 @@ public class CoinRepository {
             coinsDatabaseInterface.insert(oneCoinData);
         });
     }
-
-    public void close() {
-    }
 }

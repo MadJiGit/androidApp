@@ -19,7 +19,10 @@ import java.util.List;
 @Dao
 public class OneCoinData  {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    public long id;
+
     @NonNull
     @ColumnInfo(name = "exchange_id")
     public String fullName;
@@ -47,11 +50,6 @@ public class OneCoinData  {
         setDataPurchased(dataPurchased);
         setPurchasePrice(purchasePrice);
     }
-
-    public OneCoinData() {
-
-    }
-
 
     private String getPurchaseData() {
         @SuppressLint("SimpleDateFormat") DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -97,5 +95,9 @@ public class OneCoinData  {
 
     public void setPurchasePrice(@NonNull String purchasePrice) {
         this.purchasePrice = purchasePrice;
+    }
+
+    public long getId() {
+        return id;
     }
 }
