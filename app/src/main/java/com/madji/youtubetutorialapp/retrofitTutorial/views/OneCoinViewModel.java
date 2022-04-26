@@ -14,17 +14,32 @@ import java.util.List;
 public class OneCoinViewModel extends AndroidViewModel {
 
     private CoinRepository coinRepository;
-    private final LiveData<List<OneCoinData>> allCoinsData;
+    private LiveData<List<OneCoinData>> allCoinsDataLD;
+    private List<OneCoinData> allCoinsData;
 
     public OneCoinViewModel(@NonNull Application application) {
         super(application);
         coinRepository = new CoinRepository(application);
-        allCoinsData = coinRepository.getAllCoinsData();
     }
 
-    public LiveData<List<OneCoinData>> getAllCoinsData() {
-        return this.allCoinsData;
+    public LiveData<List<OneCoinData>> getAllCoinsDataLD() {
+        extractAllCoinsDataLD();
+        return allCoinsDataLD;
     }
+
+    public List<OneCoinData> getAllCoinsData() {
+        extractAllCoinsData();
+        return allCoinsData;
+    }
+
+    private void extractAllCoinsData() {
+        this.coinRepository.getAllCoinsData();
+    }
+
+    private void extractAllCoinsDataLD() {
+        this.allCoinsDataLD = coinRepository.getAllCoinsDataLD();
+    }
+
 
     public void insert (OneCoinData oneCoinData) {
         coinRepository.insert(oneCoinData);

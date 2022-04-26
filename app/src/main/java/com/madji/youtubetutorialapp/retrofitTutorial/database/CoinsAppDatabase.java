@@ -45,13 +45,13 @@ public abstract class CoinsAppDatabase extends RoomDatabase {
             databaseWriteExecutor.execute(() -> {
                 // Populate the database in the background.
                 // If you want to start with more words, just add them.
-                CoinsDatabaseInterface cadi = INSTANCE.coinsDatabaseInterface();
-                cadi.deleteAll();
+                CoinsDatabaseInterface cdi = INSTANCE.coinsDatabaseInterface();
+                cdi.deleteAll();
 //OneCoinData(String fullName, String nickName, String amount, String dataPurchased, String purchasePrice)
                 OneCoinData ocd = new OneCoinData("Bitcoin", "BTC", "100", "18.04.2022", "1234");
-                cadi.insert(ocd);
+                cdi.insert(ocd);
                 OneCoinData ocd2 = new OneCoinData("Etherum", "ETH", "400", "18.04.2022", "345");
-                cadi.insert(ocd2);
+                cdi.insert(ocd2);
             });
         }
     };

@@ -1,83 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/RelativeLayoutColor"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
-    style="@style/RelativeLayoutColor">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/coinNickName"
+        style="@style/DataCellsStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:width="100dp"
-        android:height="20dp"
-        style="@style/TextViewColor"/>
+        />
 
     <TextView
         android:id="@+id/coinName"
+        style="@style/DataCellsStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/coinNickName"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
-        android:width="100dp"
-        android:height="20dp"
-        style="@style/TextViewColor"/>
-
-    <TextView
-        android:id="@+id/amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/coinNickName"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:width="100dp"
-        android:height="20dp"
-        style="@style/TextViewColor"/>
-
-    <TextView
-        android:id="@+id/purchasePrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/coinNickName"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/coinNickName"
-        android:layout_marginStart="10dp"
-        android:width="100dp"
-        android:height="20dp"
-        style="@style/TextViewColor"/>
-
-    <TextView
-        android:id="@+id/currentPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/coinNickName"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/purchasePrice"
-        android:layout_marginStart="10dp"
-        android:width="100dp"
-        android:height="20dp"
-        style="@style/TextViewColor"/>
+        />
 
     <TextView
         android:id="@+id/datePurchase"
+        style="@style/DataCellsStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/currentPrice"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:width="250dp"
-        android:height="20dp"
-        style="@style/TextViewColor"/>
+        android:layout_toEndOf="@+id/coinName"
+        />
 
-<!--    <View style="@style/Divider.Horizontal"-->
-<!--        android:layout_below="@+id/datePurchase"-->
-<!--        android:layout_marginTop="10dp"/>-->
+    <!--    row with strings name for data rows-->
+
+    <TextView
+        android:id="@+id/amountStr"
+        style="@style/StringStyle"
+        android:layout_below="@+id/coinNickName"
+        android:layout_marginStart="10dp"
+        android:text="@string/amount" />
+
+    <TextView
+        android:id="@+id/purchasePriceStr"
+        style="@style/StringStyle"
+        android:layout_below="@+id/coinName"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/coinNickName"
+        android:text="@string/purchase_price" />
 
 
+    <TextView
+        android:id="@+id/currentPriceStr"
+        style="@style/StringStyle"
+        android:layout_below="@+id/datePurchase"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/purchasePriceStr"
+        android:text="@string/current_price" />
+
+
+    <!--     row with data cells-->
+
+    <TextView
+        android:id="@+id/amount"
+        style="@style/DataCellsStyle"
+        android:layout_below="@+id/amountStr"
+        android:layout_marginStart="10dp"
+        />
+
+
+    <TextView
+        android:id="@+id/purchasePrice"
+        style="@style/DataCellsStyle"
+        android:layout_below="@+id/purchasePriceStr"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/coinNickName"
+        />
+
+    <TextView
+        android:id="@+id/currentPrice"
+        style="@style/DataCellsStyle"
+        android:layout_below="@+id/currentPriceStr"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/purchasePrice"
+        />
 
 </RelativeLayout>

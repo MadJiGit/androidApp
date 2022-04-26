@@ -17,13 +17,30 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
-
-    <style name="TextViewColor" parent="TextAppearance.AppCompat">
-        <item name="android:background">#00ff00</item>
-    </style>
-
     <style name="RelativeLayoutColor" parent="TextAppearance.AppCompat">
         <item name="android:background">#dddd00</item>
     </style>
+
+
+    <style name="DataCellsStyle" parent="TextAppearance.AppCompat">
+        <item name="android:background">#00ff00</item>
+        <item name="android:width">100dp</item>
+        <item name="android:height">20dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="StringStyle" parent="TextAppearance.AppCompat">
+        <item name="android:background">#4F504F</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:width">100dp</item>
+        <item name="android:height">10dp</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
 
 </resources>

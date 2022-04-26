@@ -17,5 +17,8 @@ public interface CoinsDatabaseInterface {
     void deleteAll();
 
     @Query("SELECT * FROM my_coin_table ORDER BY exchange_id ASC")
-    LiveData<List<OneCoinData>> getAlphabeticalOrderedCoins();
+    LiveData<List<OneCoinData>> getAlphabeticalOrderedCoinsLD();
+
+    @Query("SELECT * FROM my_coin_table ORDER BY exchange_id ASC")
+    List<OneCoinData> getListAlphabeticalOrderedCoins();
 }

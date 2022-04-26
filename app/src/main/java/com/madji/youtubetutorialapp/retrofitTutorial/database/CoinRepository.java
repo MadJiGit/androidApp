@@ -10,16 +10,17 @@ import java.util.List;
 public class CoinRepository {
 
     private CoinsDatabaseInterface coinsDatabaseInterface;
-    private LiveData<List<OneCoinData>> allCoinsData;
 
     public CoinRepository(Application application) {
         CoinsAppDatabase db = CoinsAppDatabase.getDatabase(application);
         coinsDatabaseInterface = db.coinsDatabaseInterface();
-        allCoinsData = coinsDatabaseInterface.getAlphabeticalOrderedCoins();
     }
 
-    public LiveData<List<OneCoinData>> getAllCoinsData() {
-        return allCoinsData;
+    public LiveData<List<OneCoinData>> getAllCoinsDataLD() {
+        return coinsDatabaseInterface.getAlphabeticalOrderedCoinsLD();
+    }
+    public List<OneCoinData> getAllCoinsData() {
+        return coinsDatabaseInterface.getListAlphabeticalOrderedCoins();
     }
 
     public void insert(OneCoinData oneCoinData) {
