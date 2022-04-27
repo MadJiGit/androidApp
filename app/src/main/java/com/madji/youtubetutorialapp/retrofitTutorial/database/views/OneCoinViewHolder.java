@@ -1,4 +1,4 @@
-package com.madji.youtubetutorialapp.retrofitTutorial.views;
+package com.madji.youtubetutorialapp.retrofitTutorial.database.views;
 
 import android.view.LayoutInflater;
 import android.view.View;

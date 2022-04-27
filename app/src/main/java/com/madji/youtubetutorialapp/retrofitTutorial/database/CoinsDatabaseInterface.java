@@ -3,7 +3,7 @@ package com.madji.youtubetutorialapp.retrofitTutorial.database;
 import androidx.lifecycle.LiveData;
 import androidx.room.*;
 
-import com.madji.youtubetutorialapp.retrofitTutorial.data.OneCoinData;
+import com.madji.youtubetutorialapp.retrofitTutorial.database.db_data.OneCoinData;
 
 import java.util.List;
 

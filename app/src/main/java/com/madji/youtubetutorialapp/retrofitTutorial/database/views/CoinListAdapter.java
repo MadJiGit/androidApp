@@ -1,11 +1,11 @@
-package com.madji.youtubetutorialapp.retrofitTutorial.views;
+package com.madji.youtubetutorialapp.retrofitTutorial.database.views;
 
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
-import com.madji.youtubetutorialapp.retrofitTutorial.data.OneCoinData;
+import com.madji.youtubetutorialapp.retrofitTutorial.database.db_data.OneCoinData;
 
 
 public class CoinListAdapter extends ListAdapter<OneCoinData, OneCoinViewHolder> {

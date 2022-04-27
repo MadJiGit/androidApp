@@ -8,9 +8,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.madji.youtubetutorialapp.retrofitTutorial.data.OneCoinData;
+import com.madji.youtubetutorialapp.retrofitTutorial.database.db_data.OneCoinData;
 
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

@@ -1,33 +1,19 @@
 package com.madji.youtubetutorialapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.test.core.app.ApplicationProvider;
 
-import android.app.Application;
-import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
 
-import com.madji.youtubetutorialapp.retrofitTutorial.controllers.Controller;
-import com.madji.youtubetutorialapp.retrofitTutorial.data.OneCoinData;
-import com.madji.youtubetutorialapp.retrofitTutorial.database.CoinRepository;
-import com.madji.youtubetutorialapp.retrofitTutorial.database.CoinsAppDatabase;
-import com.madji.youtubetutorialapp.retrofitTutorial.database.CoinsDatabaseInterface;
-import com.madji.youtubetutorialapp.retrofitTutorial.views.CoinListAdapter;
-import com.madji.youtubetutorialapp.retrofitTutorial.views.OneCoinViewModel;
+import com.madji.youtubetutorialapp.retrofitTutorial.api.coin.OneCoinData;
+import com.madji.youtubetutorialapp.retrofitTutorial.api.constants.Credentials;
+import com.madji.youtubetutorialapp.retrofitTutorial.api.coin.CoinsManager;
+import com.madji.youtubetutorialapp.retrofitTutorial.local_storage.FileStorage;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    OneCoinViewModel oneCoinViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +22,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RecyclerView recyclerView = findViewById(R.id.coinsListItem);
 
+        // This is logic for local storage
+
+        CoinsManager allCoins = CoinsManager.getCoinsManager();
+        ArrayList<OneCoinData> oneCoinExamplesList = new ArrayList<>();
+
+        OneCoinData coin1 = new OneCoinData("bitcoin", "BTC", "10", "21.04.2022", "10000");
+        OneCoinData coin2 = new OneCoinData("etherum", "ETH", "100", "21.04.2022", "300");
+        OneCoinData coin3 = new OneCoinData("luna", "LUNA", "1000", "21.04.2022", "80");
+
+        oneCoinExamplesList.add(coin1);
+        oneCoinExamplesList.add(coin2);
+        oneCoinExamplesList.add(coin3);
+
+        FileStorage.writeIntoFile(oneCoinExamplesList, this , Credentials.FILE_NAME);
+
+        ArrayList<OneCoinData> result = FileStorage.readFromFile(this, Credentials.FILE_DIR, Credentials.FILE_NAME);
+
+        for (OneCoinData oce : result){
+            System.out.println(" -- " + oce.getFullName());
+        }
+
+        /*
+        //This is logic for DB
         final CoinListAdapter adapter = new CoinListAdapter(new CoinListAdapter.CoinDiff());
-        
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -45,8 +54,10 @@ public class MainActivity extends AppCompatActivity {
 
         oneCoinViewModel.getAllCoinsDataLD().observe(this, adapter::submitList);
 
-        Controller ctrl = new Controller();
-        ctrl.start();
+        */
+
+//        Controller ctrl = new Controller();
+//        ctrl.start();
 
     }
 }

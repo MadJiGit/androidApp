@@ -1,8 +1,8 @@
-package com.madji.youtubetutorialapp.retrofitTutorial.models;
+package com.madji.youtubetutorialapp.retrofitTutorial.database.models;
 
 import androidx.annotation.NonNull;
 
-import com.madji.youtubetutorialapp.retrofitTutorial.interfaces.ApiCallback;
+import com.madji.youtubetutorialapp.retrofitTutorial.api.api.interfaces.ApiCallback;
 
 import retrofit2.Call;
 import retrofit2.Callback;

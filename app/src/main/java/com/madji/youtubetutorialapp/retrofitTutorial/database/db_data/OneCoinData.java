@@ -1,4 +1,4 @@
-package com.madji.youtubetutorialapp.retrofitTutorial.data;
+package com.madji.youtubetutorialapp.retrofitTutorial.database.db_data;
 
 import android.annotation.SuppressLint;
 
@@ -8,12 +8,9 @@ import androidx.room.Dao;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.madji.youtubetutorialapp.retrofitTutorial.database.CoinsDatabaseInterface;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 @Entity(tableName = "my_coin_table")
 @Dao

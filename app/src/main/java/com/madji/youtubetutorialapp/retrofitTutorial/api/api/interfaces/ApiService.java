@@ -1,6 +1,6 @@
-package com.madji.youtubetutorialapp.retrofitTutorial.interfaces;
-import com.madji.youtubetutorialapp.retrofitTutorial.data.AssetCoinData;
-import com.madji.youtubetutorialapp.retrofitTutorial.data.ExchangeCoinData;
+package com.madji.youtubetutorialapp.retrofitTutorial.api.api.interfaces;
+import com.madji.youtubetutorialapp.retrofitTutorial.api.api_data.AssetCoinData;
+import com.madji.youtubetutorialapp.retrofitTutorial.api.api_data.ExchangeCoinData;
 
 import java.util.List;
 import retrofit2.Call;

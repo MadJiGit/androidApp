@@ -3,7 +3,7 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.madji.youtubetutorialapp.retrofitTutorial.data.OneCoinData;
+import com.madji.youtubetutorialapp.retrofitTutorial.database.db_data.OneCoinData;
 
 import java.util.List;
 

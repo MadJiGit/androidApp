@@ -1,4 +1,4 @@
-package com.madji.youtubetutorialapp.retrofitTutorial.data;
+package com.madji.youtubetutorialapp.retrofitTutorial.api.api_data;
 
 import com.google.gson.annotations.SerializedName;
 

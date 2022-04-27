@@ -1,4 +1,4 @@
-package com.madji.youtubetutorialapp.retrofitTutorial.views;
+package com.madji.youtubetutorialapp.retrofitTutorial.database.views;
 
 import android.app.Application;
 
@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.madji.youtubetutorialapp.retrofitTutorial.data.OneCoinData;
+import com.madji.youtubetutorialapp.retrofitTutorial.database.db_data.OneCoinData;
 import com.madji.youtubetutorialapp.retrofitTutorial.database.CoinRepository;
 
 import java.util.List;

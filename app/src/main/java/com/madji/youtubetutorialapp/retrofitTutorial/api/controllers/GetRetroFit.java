@@ -1,8 +1,8 @@
-package com.madji.youtubetutorialapp.retrofitTutorial.controllers;
+package com.madji.youtubetutorialapp.retrofitTutorial.api.controllers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.madji.youtubetutorialapp.retrofitTutorial.constants.Credentials;
+import com.madji.youtubetutorialapp.retrofitTutorial.api.constants.Credentials;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
