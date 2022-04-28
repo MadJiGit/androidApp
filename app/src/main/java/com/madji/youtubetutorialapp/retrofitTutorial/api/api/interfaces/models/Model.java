@@ -1,4 +1,4 @@
-package com.madji.youtubetutorialapp.retrofitTutorial.database.models;
+package com.madji.youtubetutorialapp.retrofitTutorial.api.api.interfaces.models;
 
 import androidx.annotation.NonNull;
 
