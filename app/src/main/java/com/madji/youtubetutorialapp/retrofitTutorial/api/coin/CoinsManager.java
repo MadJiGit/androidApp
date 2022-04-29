@@ -1,9 +1,14 @@
 package com.madji.youtubetutorialapp.retrofitTutorial.api.coin;
 
-import java.util.ArrayList;
+import com.madji.youtubetutorialapp.retrofitTutorial.api.api.interfaces.ApiCallback;
+import com.madji.youtubetutorialapp.retrofitTutorial.api.api_data.AssetCoinData;
 
-public class CoinsManager {
-    private ArrayList<OneCoinData> allCoins;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CoinsManager implements ApiCallback {
+    private boolean isUpdated = false;
+    private List<OneCoinData> allCoins = null;
     static CoinsManager coinsManager = null;
     private CoinsManager(){
         allCoins = new ArrayList<>();
@@ -17,7 +22,7 @@ public class CoinsManager {
         return coinsManager;
     }
 
-    public ArrayList<OneCoinData> getAllCoinsList() {
+    public List<OneCoinData> getAllCoinsList() {
        return this.allCoins;
     }
 
@@ -25,7 +30,7 @@ public class CoinsManager {
         allCoins.add(coin);
     }
 
-    public void setAllCoinsList(ArrayList<OneCoinData> list){
+    public void setAllCoinsList(List<OneCoinData> list){
         this.allCoins = list;
     }
 
@@ -34,12 +39,32 @@ public class CoinsManager {
         OneCoinData coin = null;
 
         for (OneCoinData c : allCoins){
-            if(c.fullName.equals(name)){
+            if(c.getFullName().equals(name)){
                 coin = c;
                 break;
             }
         }
 
         return coin;
+    }
+
+    public boolean getIsUpdated(){
+        return this.isUpdated;
+    }
+
+//    @Override
+    public void onSuccess(List<AssetCoinData> result) {
+            if(allCoins.size() > 0) {
+                for(AssetCoinData acd : result){
+                    for (OneCoinData ocd : allCoins){
+                        if(ocd.getFullName().equals(acd.getName()) && ocd.getNickName().equals(acd.getId())){
+                            ocd.setCurrentPrice(acd.getPriceUSD().toString());
+                            break;
+                        }
+                    }
+                }
+
+                isUpdated = true;
+            }
     }
 }

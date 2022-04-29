@@ -4,6 +4,6 @@ import com.madji.youtubetutorialapp.retrofitTutorial.api.api_data.AssetCoinData;
 
 import java.util.List;
 
-public interface ApiCallback {
-        void onSuccess(List<AssetCoinData> result);
+public interface NewApiCallback<T> {
+    void getList(List<AssetCoinData> list);
 }

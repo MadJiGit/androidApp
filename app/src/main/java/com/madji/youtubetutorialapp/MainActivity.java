@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.madji.youtubetutorialapp.retrofitTutorial.api.api.interfaces.ApiCallback;
-import com.madji.youtubetutorialapp.retrofitTutorial.api.api.interfaces.ApiService;
-import com.madji.youtubetutorialapp.retrofitTutorial.api.api.interfaces.models.Model;
+import com.madji.youtubetutorialapp.retrofitTutorial.api.api.interfaces.NewApiCallback;
 import com.madji.youtubetutorialapp.retrofitTutorial.api.api_data.AssetCoinData;
 import com.madji.youtubetutorialapp.retrofitTutorial.api.coin.OneCoinData;
 import com.madji.youtubetutorialapp.retrofitTutorial.api.constants.Credentials;
@@ -20,11 +19,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    ApiCallback apiCallback;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-        CoinsManager allCoins = CoinsManager.getCoinsManager();
+        CoinsManager coinsManager = CoinsManager.getCoinsManager();
         ArrayList<OneCoinData> oneCoinExamplesList = new ArrayList<>();
 
         super.onCreate(savedInstanceState);
@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        OneCoinData coin1 = new OneCoinData("bitcoin", "BTC", "10", "21.04.2022", "10000");
-        OneCoinData coin2 = new OneCoinData("etherum", "ETH", "100", "21.04.2022", "300");
-        OneCoinData coin3 = new OneCoinData("luna", "LUNA", "1000", "21.04.2022", "80");
+        OneCoinData coin1 = new OneCoinData("Bitcoin", "BTC", "10", "21.04.2022", "10000");
+        OneCoinData coin2 = new OneCoinData("Etherum", "ETH", "100", "21.04.2022", "300");
+        OneCoinData coin3 = new OneCoinData("Luna", "LUNA", "1000", "21.04.2022", "80");
 
         oneCoinExamplesList.add(coin1);
         oneCoinExamplesList.add(coin2);
@@ -51,7 +51,19 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(" -- " + oce.getFullName());
         }
 
+        Controller ctrl = new Controller();
+        ctrl.getAssetCoinData(apiCallback);
 
+        int counter = 0;
+        while(!coinsManager.getIsUpdated()){
+            counter++;
+        }
+
+        System.out.println("counter = " + counter);
+        for (OneCoinData aaa : coinsManager.getAllCoinsList()){
+            System.out.print("Fullname " + aaa.getFullName());
+            System.out.println(" current price " + aaa.getCurrentPrice());
+        }
 
 
         /*
@@ -66,12 +78,12 @@ public class MainActivity extends AppCompatActivity {
         oneCoinViewModel.getAllCoinsDataLD().observe(this, adapter::submitList);
 
         */
-        
-
-        Controller ctrl = new Controller();
-        List<AssetCoinData> l;
-        ctrl.getAssetCoinData((ApiCallback) this);
 
 
     }
+//
+//    @Override
+//    public List<AssetCoinData> onSuccess(List<AssetCoinData> result) {
+//        return result;
+//    }
 }

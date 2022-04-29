@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class AssetCoinData {
 
-    @SerializedName("asset_id")
+    @SerializedName("asset_id") // nickName
     private String id;
-    @SerializedName("name")
+    @SerializedName("name")     // full name
     private String name;
     @SerializedName("price_usd")
     private Double priceUSD;
